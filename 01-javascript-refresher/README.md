@@ -90,7 +90,9 @@ console.log(name) // Leon
 console.log(age) // undefined
 ```
 
-# Map Function
+# Array Functions
+
+## `map()`
 
 - `map()` executes a function on each element in an array
 ```js
@@ -102,4 +104,98 @@ const doubleNumArray = numbers.map((num) => {
 
 console.log(numbers)    // [1,2,3]
 console.log(doubleNumArray)     // [2,4,6]
+```
+
+## `find()`
+
+- `find()` returns the first element in the array that satisfied the provided testing function.
+```js
+const arr = [5, 12, 8, 130, 44]
+const found = arr.find(element => element > 10)
+console.log(found)  // 12
+```
+
+## `findIndex()`
+
+- `findIndex()` returns the index of the first element in an array that satisfies the provided testing function
+```js
+const array1 = [5, 12, 8, 130, 44];
+const isLargeNumber = (element) => element > 13;
+console.log(array1.findIndex(isLargeNumber)); // 3
+```
+
+## `filter()`
+
+- `filter()` creates a copy of a portion of the given array, filtered down to just the elements from the given array that pass the test provided.
+```js
+const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+const result = words.filter(word => word.length > 6);
+console.log(result);    // Array ["exuberant", "destruction", "present"]
+```
+
+## `reduce()`
+
+- `reduce()` method executes a user-supplied "reducer" callback function on each element of the array.
+```js
+const arr = [1,2,3,4]
+
+const initialValue = 0;
+const sumWithInitial  = arr.reduce(
+    [previousValue, currentValue] => previousValue + currentValue
+)
+```
+
+## `concat()`
+
+- `concat()` method is used to merge 2 or more arrays.
+- Does not change the existing arrays, but instead returns a new array.
+```js
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+const array3 = array1.concat(array2);
+
+console.log(array3); 
+// expected output: Array ["a", "b", "c", "d", "e", "f"]
+```
+
+## `slice()`
+
+- `slice()` method returns a shallow copy of a portion of an array into a new array objected selected from start to end (end not included).
+```js
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// expected output: Array ["camel", "duck"]
+
+
+console.log(animals.slice(1, 5));
+// expected output: Array ["bison", "camel", "duck", "elephant"]
+
+console.log(animals.slice(-2));
+// expected output: Array ["duck", "elephant"]
+
+console.log(animals.slice(2, -1));
+// expected output: Array ["camel", "duck"]
+
+console.log(animals.slice());
+// expected output: Array ["ant", "bison", "camel", "duck", "elephant"]
+```
+
+## `splice()`
+
+- `splice()` method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.
+```js
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
 ```
