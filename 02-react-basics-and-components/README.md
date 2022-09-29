@@ -61,3 +61,10 @@ return React.createElement(
   React.createElement(Expenses, { items: expenses })
 );
 ```
+
+## useState()
+
+- When the state changes, the particular component will be re-evaluated.
+- It will evaluate the JSX code again.
+- If we create the component more than once, the components have separate states (independent).
+
