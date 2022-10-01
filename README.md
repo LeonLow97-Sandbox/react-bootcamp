@@ -142,3 +142,105 @@ const NewExpense = () => {
 - Utilise the parent component that has access to both the siblings
 - Lift the state up (move data from child to parent component)
 - Then can pass this data from parent to another child.
+
+## Updating state based on an older snapshot of the same state
+
+- In this example, we created a parameter `prevExpenses` which takes the previous state.
+
+```js
+const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
+const addExpenseHandler = (expense) => {
+  setExpenses((prevExpenses) => {
+    return [expense, ...prevExpenses];
+  });
+};
+```
+
+## Set a unique id in map
+
+```js
+{
+  props.items.map((expense) => (
+    <ExpenseItem
+      key={expense.id}
+      title={expense.title}
+      amount={expense.amount}
+      date={expense.date}
+    />
+  ));
+}
+```
+
+## Filtering a particular element
+
+- In this example, we want to display the list of years based on the selected dropdown year.
+
+```js
+const filteredExpenses = props.items.filter((expense) => {
+  return expense.date.getFullYear().toString() === filteredYear;
+});
+```
+
+## Using Ternary Operator to render components
+
+- Method 1:
+
+```js
+{
+  filteredExpenses.length === 0 ? (
+    <p>No expenses found.</p>
+  ) : (
+    filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ))
+  );
+}
+```
+
+- Method 2: Using `&&` operator
+
+```js
+{
+  filteredExpenses.length === 0 && <p>No Expenses Found.</p>;
+}
+{
+  filteredExpenses.length > 0 &&
+    filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+}
+```
+
+## Storing JSX in variables
+
+```js
+  let expensesContent = <p>No expenses found</p>;
+
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+```
+
+- Only need to render this neat JSX in return
+
+```js
+return <div>{expensesContent}</div>;
+```
+
