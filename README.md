@@ -8,6 +8,8 @@ cd my-app
 npm start
 ```
 
+- There are some deprecated versions in this file, ensure `package.json` has `"start": "react-scripts --openssl-legacy-provider start"` for npm start
+
 ## React Running on Browser
 
 - `index.js` file runs first
@@ -243,4 +245,96 @@ const filteredExpenses = props.items.filter((expense) => {
 ```js
 return <div>{expensesContent}</div>;
 ```
+
+## Conditional Inline Styles
+
+- Inline styles take a very high priority (not recommended)
+
+```js
+<label style={{ color: !isValid ? "red" : "black" }}>Course Goal</label>
+<input
+  style={{
+    borderColor: !isValid ? "red" : "black",
+    background: !isValid ? "salmon" : "transparent",
+  }}
+  type="text"
+  onChange={goalInputChangeHandler}
+/>
+```
+
+## Conditional Classes
+
+- CSS
+
+```css
+.form-control.invalid input {
+  border-color: red;
+  background-color: #ffd7d7;
+}
+
+.form-control.invalid label {
+  color: red;
+}
+```
+
+- In React
+
+```js
+<div className={`form-control ${!isValid ? "invalid" : ""}`}>
+```
+
+## Unique CSS classes in React
+
+- `npm install --save styled-components`
+- Change Button to the following (`&` is used to represent pseudo-classes)
+
+```js
+const Button = styled.button`
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:active {
+    background: #ac0e77;
+    border-color: #ac0e77;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+  }
+`;
+```
+
+#### Setting Media Query in styled-components (Unique CSS classes in React)
+
+```js
+const Button = styled.button`
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #8b005d;
+  color: white;
+  background: #8b005d;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
+```
+
+#### Adding CSS Modules Stylesheet (Unique CSS classes in React)
+
+- Change the name of the css file to `.module.css`
+
+```js
+import styles from "./Button.module.css";
+```
+
 
