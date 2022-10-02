@@ -345,3 +345,61 @@ import styles from "./Button.module.css";
 <label htmlFor="username">Username:</label>
 <input id='username' type='text'/>
 ```
+
+## JSX Limitations
+
+- You can't return more than one 'root' JSX element (you also can't store more than one "root" JSX element in a variable).
+
+```js
+return (
+  <h2>Hi there!</h2>
+  <p>This does not work</p>
+)
+```
+
+- Solve by wrapping adjavent elements with a `div`
+
+```js
+return (
+  <div>
+    <h2>Hi there!</h2>
+    <p>This does not work</p>
+  </div>
+);
+```
+
+- Solve by wrapping adjacent elements with fragments `<> ... </>`.
+
+```js
+return (
+  <>
+    <h2>Hi there!</h2>
+    <p>This does not work</p>
+  </>
+);
+
+return (
+  <React.Fragment>
+    <h2>Hi there!</h2>
+    <p>This does not work</p>
+  </React.Fragment>
+);
+```
+
+- Solve by using a wrapper component
+
+```js
+const Wrapper = (props) => {
+  return props.children;
+};
+
+export default Wrapper;
+```
+
+## React Portals
+
+- E.g., want Error Modal to be directly below the body in html.
+- Moving the HTML content somewhere else instead of being nested into the default root element. 
+- `ReactDOM.createPortal()`
+
+
