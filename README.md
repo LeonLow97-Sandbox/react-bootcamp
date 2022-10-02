@@ -27,6 +27,8 @@ npm start
 ## Creating an Custom Component
 
 - using `props.children` which is a keyword.
+- `props.className` is used to accept any className passed to the Card component in the parent component.
+- E.g., `<Card className="">...</Card>
 
 ```js
 import "./Card.css";
@@ -337,8 +339,9 @@ const Button = styled.button`
 import styles from "./Button.module.css";
 ```
 
-## Understanding React Error Messages
+## Connecting label to input using `htmlFor`
 
-- 
-
-
+```js
+<label htmlFor="username">Username:</label>
+<input id='username' type='text'/>
+```
