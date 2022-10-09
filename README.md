@@ -26,21 +26,15 @@ npm start
 
 ## Creating an Custom Component
 
-- using `props.children` which is a keyword.
+- using `props.children` which is a keyword to nest content inside a component.
+- E.g., `<Card className="">...can have a lot of content here...</Card>
+  ```js
+  function Card(props) {
+    const classes = "card " + props.className;
+    return <div className={classes}>{props.children}</div>;
+  }
+  ```
 - `props.className` is used to accept any className passed to the Card component in the parent component.
-- E.g., `<Card className="">...</Card>
-
-```js
-import "./Card.css";
-
-function Card(props) {
-  const classes = "card " + props.className;
-
-  return <div className={classes}>{props.children}</div>;
-}
-
-export default Card;
-```
 
 ## How JSX Works
 
@@ -396,10 +390,141 @@ const Wrapper = (props) => {
 export default Wrapper;
 ```
 
+## Wrapper
+
+- Creating a wrapper to act as a fragment
+
+```js
+const Wrapper = props => {
+    return props.children
+}
+
+export default Wrapper
+```
+
 ## React Portals
 
 - E.g., want Error Modal to be directly below the body in html.
 - Moving the HTML content somewhere else instead of being nested into the default root element. 
 - `ReactDOM.createPortal()`
+- Added above root in index.html
+
+```js
+    <div id="backdrop-root"></div>
+    <div id="overlay-root"></div>
+    <div id="root"></div>
+```
+
+- `ReactDOM.createPortal`
+- `document.getElementById`
+
+```js
+    <React.Fragment>
+      {ReactDOM.createPortal(
+        <Backdrop onConfirm={props.onConfirm} />,
+        document.getElementById("backdrop-root")
+      )}
+      {ReactDOM.createPortal(
+        <ModalOverlay
+          title={props.title}
+          message={props.message}
+          onConfirm={props.onConfirm}
+        />,
+        document.getElementById("overlay-root")
+      )}
+    </React.Fragment>
+```
+
+# useRef() - `AddUser.js file`
+
+- The `useRef` Hook allows you to persist values between renders.
+- Can be used to store a mutable value that does not cause a re-render when updated.
+- Can be used to access a DOM element directly.
+- Unlike `useState` which updates the state with every keystroke.
+
+---
+
+## Does not cause re-renders
+
+- If we tried to count how many times our application render using the `useState` Hook, we would be caught in an infinite loop since this Hook itself causes a re-render.
+- To avoid this, we can use the `useRef` Hook.
+- `useRef()` only returns one item. It returns an **Object** called `current`.
+
+- When we initialize `useRef`, we set the initial value: `useRef(0)`.
+  - It's like doing this: `const count = {current: 0}`. We can access the count by using `count.current`.
+
+## Accessing DOM Elements
+
+- In general, we want to let React handle all DOM manipulation.
+- But there are some instances where `useRef` can be used without causing issues.
+- In React, can add a `ref` attribute to an element to access it directly in the DOM.
+
+- `useRef` to focus the input:
+
+```js
+function App() {
+  const inputElement = useRef();
+
+  const focusInput = () => {
+    inputElement.current.focus();
+  };
+
+  return (
+    <>
+      <input type="text" ref={inputElement} />
+      <button onClick={focusInput}>Focus Input</button>
+    </>
+  );
+}
+```
+
+## Tracking State Changes
+
+- The `useRef` Hook can also be used to keep track of previous state values.
+- This is because we are able to persist `useRef` values between renders.
+
+- In the example below, we use a combination of `useState`, `useEffect` and `useRef` to keep track of the previous state.
+- In the `useEffect`, we are updating the `useRef` current value each time the `inputValue` is updated by entering text into the input field.
+
+```js
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const previousInputValue = useRef("");
+
+  useEffect(() => {
+    previousInputValue.current = inputValue;
+  }, [inputValue]);
+
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <h2>Current Value: {inputValue}</h2>
+      <h2>Previous Value: {previousInputValue.current}</h2>
+    </>
+  );
+}
+```
+
+## storing the current value
+
+```js
+const nameInputRef = useRef()
+
+.........
+
+nameInputRef.current.value
+```
+
+## Uncontrolled Components
+
+- By using `useRef` to set the values, we are not using React.
+- We are using the browser DOM to set the values.
+- E.g., `nameInput.current.value`
+- `useState` are controlled components where the states are updated with every keystroke because their internal state are controlled by React.
+
 
 

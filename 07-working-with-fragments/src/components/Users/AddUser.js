@@ -7,7 +7,7 @@ import classes from "./AddUser.module.css";
 import Wrapper from "../Helpers/Wrapper";
 
 const AddUser = (props) => {
-  const nameInputRef = useRef();
+  const nameInputRef = useRef();  // object
   const ageInputRef = useRef();
 
   // const [enteredUsername, setEnteredUsername] = useState("");
@@ -34,6 +34,7 @@ const AddUser = (props) => {
       return;
     }
     props.onAddUser(enteredName, enteredUserAge);
+    // reset the values
     nameInputRef.current.value = "";
     ageInputRef.current.value = "";
     // setEnteredUsername("");

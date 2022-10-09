@@ -6,7 +6,7 @@
 
 // person.name = "Daniel"
 
-// console.log(secondPerson)   // did not copy (copying the pointer, not the value)
+// console.log(secondPerson) // Daniel  // did not copy (copying the pointer, not the value)
 
 // Use spread operator to copy objects
 const person = {
