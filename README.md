@@ -10,6 +10,10 @@ npm start
 
 - There are some deprecated versions in this file, ensure `package.json` has `"start": "react-scripts --openssl-legacy-provider start"` for npm start
 
+## Uncaught ReferenceError: process is not defined
+
+`npm install react-scripts@latest`
+
 ## React Running on Browser
 
 - `index.js` file runs first
