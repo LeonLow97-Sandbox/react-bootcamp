@@ -91,13 +91,89 @@
     - `initFn`
         - a function to set the initial state programmatically.
 
-## useState() vs useReducer()
+### useState() vs useReducer()
 
 |useState()|useReducer()|
 |:-:|:-:|
 |The main state management "tool"|Great if you need "more power"|
 |Great for independent pieces of state/data|Should be considered if you have related pieces of state/data|
 |Great if state updates are easy and limited to a few kinds of updates|Can be help if you have more complex state updates.|
+
+## React Context (Context API)
+
+- In the current situation, we are passing props from `App.js` to `MainHeader.js` to `Navigation.js`
+  - props: `isLoggedin` and `logoutHandler`
+- However, we are not using the props in `MainHeader.js`. (not ideal because we are only using it to pass down props)
+- Can create a "Component-wide" state storage to pass data easily.
+
+### Using Context Provider and Context Consumer
+
+- Passing 'props' from `App.js` to `Navigation.js`
+- Creating a Context File
+```js
+import React from 'react'
+
+const AuthContext = React.createContext({
+    isLoggedIn: false
+})
+
+export default AuthContext
+```
+
+- `App.js` (Linked the value in Context to a state in App.js)
+```js
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+      }}
+    >
+      <MainHeader onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </AuthContext.Provider>
+```
+
+- `Navigation.js` (`ctx` accessed isLoggedIn)
+```js
+    <AuthContext.Consumer>
+      {(ctx) => {
+        return (
+          <nav className={classes.nav}>
+            <ul>
+              {ctx.isLoggedIn && (
+                <li>
+                  <a href="/">Users</a>
+                </li>
+              )}
+            </ul>
+          </nav>
+        );
+      }}
+    </AuthContext.Consumer>
+```
+
+#### `useContext()` Hook
+
+- Using the `useContext` Hook instead of the Context Consumer
+```js
+  const ctx = useContext(AuthContext);
+```
+
+#### Dynamic Context
+
+- Passing another 'prop' to the Context Provider. (can not use onLogout in components listening to this context).
+```js
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler
+      }}
+    >
+```
+
+
 
 
 
