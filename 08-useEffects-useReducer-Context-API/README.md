@@ -105,6 +105,8 @@
   - props: `isLoggedin` and `logoutHandler`
 - However, we are not using the props in `MainHeader.js`. (not ideal because we are only using it to pass down props)
 - Can create a "Component-wide" state storage to pass data easily.
+- For state management across the entire application.
+- React Context is not optimized for high frequency changes (means keep changing).
 
 ### Using Context Provider and Context Consumer
 
@@ -173,7 +175,58 @@ export default AuthContext
     >
 ```
 
+## Custom Context Provider
 
+- Inside `auth-context.js` and this was done for login.
+```js
+export const AuthContextProvider = (props) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storageIsLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (storageIsLoggedIn === "1") {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const logoutHandler = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+  };
+
+  const loginHandler = () => {
+    localStorage.setItem("isLoggedIn", "1");
+    setIsLoggedIn(true);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: isLoggedIn,
+        onLogout: logoutHandler,
+        onLogin: loginHandler,
+      }}
+    >
+      {props.children}
+    </AuthContext.Provider>
+  );
+```
+
+## Rules of Hooks
+
+- Only call React Hooks in React Functions
+  - React Component Functions (returns JSX)
+  - Custom Hooks
+- Only call React Hooks at the Top Level
+  - Don't call them in nested function
+  - Don't call them in any block statements
+- For `useEffect()`
+  - Always add everything you refer to inside of `useEffect()` as a dependency.
+
+## Forward Ref
+
+- `useImperativeHandler`
 
 
 
