@@ -760,6 +760,26 @@ export const AuthContextProvider = (props) => {
 ## Forward Ref
 
 - `useImperativeHandler`
+- React component that is binded to a 'ref'
+- `focus` is now exposed to parent components that are outside of the Input component shown below.
+```js
+const Input = React.forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  // activate is a function that will be called outside
+  const activate = () => {
+    inputRef.current.focus();
+  };
+
+  // need to use this useImperativeHandle() hook
+  // so that the function can be used outside in the parent component
+  // naming the activate() function "focus" that will be called outside
+  useImperativeHandle(ref, () => {
+    return {
+      focus: activate,
+    };
+  });
+```
 
 
 
