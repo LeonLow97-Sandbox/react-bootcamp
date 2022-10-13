@@ -103,6 +103,7 @@ const Login = (props) => {
     event.preventDefault();
     if (formIsValid) {
       authCtx.onLogin(emailState.value, passwordState.value);
+      // if email is not valid, focus on the email input field
     } else if (!emailIsValid) {
       emailInputRef.current.focus();
     } else {

@@ -1,14 +1,17 @@
-import React, { useEffect, useRef, useImperativeHandle } from "react";
+import React, { useRef, useImperativeHandle } from "react";
 import classes from "./Input.module.css";
 
 const Input = React.forwardRef((props, ref) => {
   const inputRef = useRef();
 
+  // activate is a function that will be called outside
   const activate = () => {
     inputRef.current.focus();
   };
 
+  // need to use this useImperativeHandle() hook
   // so that the function can be used outside in the parent component
+  // naming the activate() function "focus" that will be called outside
   useImperativeHandle(ref, () => {
     return {
       focus: activate,
