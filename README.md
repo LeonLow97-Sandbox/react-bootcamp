@@ -565,6 +565,7 @@ nameInputRef.current.value
 - Execute a function after a certain amount of time
 - `setTimeout(() => {}, 500)` will be executed after 500 milliseconds
 - Clean up `return () => {}` to remove the previous function in useEffect().
+- the return statement gets runs first before the code in the `useEffect()`.
 
 ```js
   useEffect(() => {
