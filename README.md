@@ -781,6 +781,22 @@ const Input = React.forwardRef((props, ref) => {
   });
 ```
 
+## Highly Configurable UI Input component
+
+```js
+import classes from "./Input.module.css";
+
+const Input = (props) => {
+  <div className={classes.input}>
+    <label htmlFor={props.input.id}>{props.label}</label>
+    <input id={props.input.id} {...props.input} />
+  </div>;
+};
+
+export default Input;
+```
+
+
 
 
 
