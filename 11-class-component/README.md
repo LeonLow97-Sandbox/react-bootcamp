@@ -109,6 +109,16 @@ class Users extends Component {
     - called right before component is unmounted (removed from the DOM)
     - `useEffect(() => {return () => {...}}, [])` with cleanup function. 
 
+## Class-based Component Context
+
+```js
+class UserFinder extends Component {
+  // can only set this property once
+  static contextType = UsersContext;
+```
+
+
+
 
 
 
