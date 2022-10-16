@@ -41,6 +41,9 @@ class User extends Component {
 ## Class-based component with `this` keyword
 
 - Define functions as methods and states in constructor().
+- `this.state` to define states
+- `this.setState` to update states
+- use `.bind(this)` on methods in JSX return statement.
 ```js
 class Users extends Component {
   // define 'state' in constructor (always an object)
@@ -98,6 +101,7 @@ class Users extends Component {
 - `componentDidMount()`
     - called once component mounted (was evaluated & rendered)
     - like `useEffect()` with no dependencies
+    - used when fetching data for the first time when the browser loads. (Send http request...)
 - `componentDidUpdate()`
     - called once component updated (was evaluated & rendered)
     - like `useEffect(..., [somevalue])` with some dependencies
