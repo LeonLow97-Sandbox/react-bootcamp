@@ -7,45 +7,22 @@
 
 - [SWAPI](swapi.dev)
 
-## GET Request using `fetch()` and `.then()`
+## POST Request
 
 ```js
-function fetchMoviesHandler() {
-  fetch("https://swapi.dev/api/films/") // returns a promise
-    .then((response) => {
-      return response.json(); // returns a promise so need another .then()
-    })
-    .then((data) => {
-      // the API returns different names for the data. trying to convert the names
-      // such that it matches that of our React App in Movie.js
-      const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseData: movieData.release_date,
-        };
-      });
-      setMovies(transformedMovies);
-    });
-}
-```
-
-## GET Request using `async` and `await`
-
-```js
-async function fetchMoviesHandler() {
-  const response = await fetch("https://swapi.dev/api/films/"); // returns a promise
+async function addMovieHandler(movie) {
+  // POST Request
+  const response = await fetch(
+    "https://react-http-a0421-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json",
+    {
+      method: "POST",
+      body: JSON.stringify(movie), // turns javascript object/array to json
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const data = await response.json();
-
-  const transformedMovies = data.results.map((movieData) => {
-    return {
-      id: movieData.episode_id,
-      title: movieData.title,
-      openingText: movieData.opening_crawl,
-      releaseData: movieData.release_date,
-    };
-  });
-  setMovies(transformedMovies);
+  console.log(data);
 }
 ```
