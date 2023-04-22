@@ -19,3 +19,13 @@
 - State is like a variable in React
 - State is used to store data that changes over time.
 - Whenever state changes, React automatically updates content on the screen.
+
+## What is Create React App?
+
+- Files in the Project: `index.js`, `App.js`, and `reportWebVitals.js`.
+    - These are files that contain code that a browser does not know how to execute.
+    - Browser does not know how to execute JSX, only valid JavaScript.
+- Create React App Dev Server
+    - **Babel**: Tool to turn JSX into normal JS code.
+    - **Webpack**: Tool to merge all project files into a single file.
+    - Ends up with `bundle.js`
