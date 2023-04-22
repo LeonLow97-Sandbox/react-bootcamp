@@ -70,3 +70,18 @@ const [count, setCOunt] = useState(0);
     setAnimals([...animals, getRandomAnimal()]);
   };
 ```
+
+## Mapping arrays into components
+
+- Mapping the animals array into components.
+```js
+  const renderedAnimals = animals.map((animal, index) => {
+    return <AnimalShow type={animal} key={index} />;
+  });
+
+  return (
+  <div>
+    <button onClick={handleClick}>Add Animal</button>
+    <div>{renderedAnimals}</div>
+  </div>
+```
