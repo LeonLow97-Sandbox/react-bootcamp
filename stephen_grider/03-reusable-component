@@ -48,4 +48,5 @@ function ProfileCard({ title, handle }) {
 
 ## Adding bulma into the project for CSS
 
+- [Link](bulma.io)
 - `npm install bulma`
