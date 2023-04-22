@@ -29,3 +29,18 @@
     - **Babel**: Tool to turn JSX into normal JS code.
     - **Webpack**: Tool to merge all project files into a single file.
     - Ends up with `bundle.js`
+
+## Necessary files to run React App
+
+|File Name|Description|
+|:-:|:-:|
+|`index.js`|First file that gets executed when our app runs.|
+|`index.html`|Skeleton for the React app.|
+|`package.json`|Lists dependencies our app needs.|
+|`package-lock.json`|Lists dependencies our app needs.|
+|`node-modules`|Contains dependencies our app needs.|
+
+## `React` vs `ReactDOM`
+
+- `React`: Library that defines what a component is and how multiple components work together.
+- `ReactDOM`: Library that knows how to get a component to show up in the browser.
