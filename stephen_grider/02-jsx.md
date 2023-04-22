@@ -45,3 +45,46 @@
 4. In JSX, the 'class' attribute is written as 'className'
 5. In JSX, in-line styles are provided as objects.
   - `<div style={{ color:'red' }} />`
+
+## Module System Systems
+
+- import/export statements
+  - Variables shared between files by using import/export statements.
+- export statements
+  - 2 kinds - `default` and `named`.
+  - A file can only have a single `default` export.
+  - 2 ways to write a default export.
+    1. `export default App;`
+    2. `export default function App() {}`
+- Default exports can be *renamed* in the importing file.
+  - `export default App`
+  - `import MyApp from './App'`
+- Named Export Statements
+  - Use when exporting multiple variables
+  - Can have as many named exports as we want.
+  - 2 ways to write a named export
+  - Named exports cannot be renamed.
+  ```js
+    // First method
+    function App() {
+      return <h1>Hi</h1>
+    }
+    export default App
+
+    const message = 'hi'
+    export {message}
+
+    // Second method
+    export default function App() {
+      return <h1>Hi</h1>
+    }
+    export const message = 'hi';
+
+    // Import named export (use curly braces)
+    import App, { message } from './App';
+  ```
+- Import Path
+  - './' or  '../' means we are importing a file that we created.
+  - No './' or '../' like 'react' means we are importing a package.
+  - `./`: Same directory
+  - `'../`: Up one directory
