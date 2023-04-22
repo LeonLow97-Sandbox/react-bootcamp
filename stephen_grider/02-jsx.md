@@ -1,3 +1,7 @@
+## JSX
+
+- [Cheat Sheet](https://jsx-notes.vercel.app/)
+
 ## What is JSX?
 
 - JSX: what we write in the component
