@@ -45,3 +45,7 @@ const {title, handle} = props;
 // Method 3
 function ProfileCard({ title, handle }) {
 ```
+
+## Adding bulma into the project for CSS
+
+- `npm install bulma`
