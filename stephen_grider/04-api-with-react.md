@@ -109,3 +109,40 @@ function App() {
 // Don't allow lowercase characters
 setTerm(event.target.value.replace(/[a-z]/, ""));
 ```
+
+## `value` prop of an `input` element
+
+- The purpose of having a `value` prop for input elements in React is to make the input element a **controlled component**.
+  - Current value of the input element is always reflected in the state.
+  - Changes to the input element value are handled by React rather than the DOM.
+- Tells the input what the current value is.
+
+## Console Error: `Warning: Each child in a list should have a unique "key" prop.`
+
+- Applying update to the mapped elements
+  - **Apply a "Key" to each element during the mapping step.**
+  - After re-rendering, compare the keys on each ImageShow to the keys from the previous render. (React will handle this)
+  - Apply minimal set of changes to existing DOM elements. (React will handle this)
+
+## Requirements for Keys
+
+- Use whenever we have a list of elements (so every time we do a 'map')
+- Add the key to the top most element in the list.
+  ```js
+  // Top most elemet
+  <ImageShow key={image.id} />
+
+  // Top most element
+  <div key={image.id}>
+    <ImageShow />
+  </div>
+  ```
+- Must be a string or number.
+- Should be unique for this list.
+  - no duplicate keys!
+- Should be consistent across rerenders.
+  - Never do `key={Math.random()}`, we don't want the keys to change in each rerender.
+- Records fetched from database should assign records to an id.
+- If there is no id,
+  - use the index of the record.
+  - generate a unique id yourself.
