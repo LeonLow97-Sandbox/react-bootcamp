@@ -62,18 +62,19 @@ const [count, setCOunt] = useState(0);
 - Use spread operator to get the original array and add another element inside instead of using `.push()` method.
 
 ```js
-  const [animals, setAnimals] = useState([]);
+const [animals, setAnimals] = useState([]);
 
-  const handleClick = () => {
-    // modifies a piece of state!!! (BAD)
-    // animals.push(getRandomAnimal())
-    setAnimals([...animals, getRandomAnimal()]);
-  };
+const handleClick = () => {
+  // modifies a piece of state!!! (BAD)
+  // animals.push(getRandomAnimal())
+  setAnimals([...animals, getRandomAnimal()]);
+};
 ```
 
 ## Mapping arrays into components
 
 - Mapping the animals array into components.
+
 ```js
   const renderedAnimals = animals.map((animal, index) => {
     return <AnimalShow type={animal} key={index} />;
@@ -84,4 +85,30 @@ const [count, setCOunt] = useState(0);
     <button onClick={handleClick}>Add Animal</button>
     <div>{renderedAnimals}</div>
   </div>
+```
+
+## Updating State of an Array
+
+```js
+// BAD CODE
+// Reference a123 is created in memory to the empty array 'books'
+const [books, setBooks] = useState([]);
+
+const createBook = (title) => {
+  // Updating the state with the same reference of the array in memory
+  books.push({ id: "1", title: title });
+  setBooks(books);
+};
+```
+
+- If these are pointing to the same array/object, React assume no rerender is required.
+  - Reference to "current" state and Reference to "new" state are the same.
+
+```js
+// Creates a new array with a new reference in memory
+const createBook = (title) => {
+  const updatedBooks = [...books, { id: 123, title }];
+
+  setBooks(updatedBooks);
+};
 ```
