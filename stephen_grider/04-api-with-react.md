@@ -40,7 +40,7 @@ axios.get(url, {
 
 ## Child to Parent Communication
 
-- Pass an event handler down.
+- Pass an **event handler** down from the parent to child as a prop. (`onSubmit`)
 - Call handler when something happens.
 
 ```js
@@ -73,3 +73,9 @@ function App() {
   );
 }
 ```
+
+## Using `form` elements
+
+- `<form></form>`: default HTML submit.
+- Able to detect the `ENTER` key and button click.
+- `e.preventDefault()`: prevent default behavior of form submission.
