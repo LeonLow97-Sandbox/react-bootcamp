@@ -116,6 +116,8 @@ setTerm(event.target.value.replace(/[a-z]/, ""));
   - Current value of the input element is always reflected in the state.
   - Changes to the input element value are handled by React rather than the DOM.
 - Tells the input what the current value is.
+- **Controlled Input**
+  - Contains `onChange` and `value`.
 
 ## Console Error: `Warning: Each child in a list should have a unique "key" prop.`
 
