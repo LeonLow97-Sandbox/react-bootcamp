@@ -25,3 +25,51 @@ axios.get(url, {
   },
 })
 ```
+
+## Understanding `async` and `await`
+
+- Use async/await to tell JavaScript to wait for the request to finish before moving on.
+
+## Data Flow
+
+- BAD: Sibling components cannot directly communicate.
+  - E.g., "SearchBar.js" and "ImageList.js" are siblings with the same parent "App.js"
+- GOOD: To share info between sibling components, we have to involve the parent.
+  - Use props to communicate from parent to child.
+  - App can send the list of images down to "ImageList" using props.
+
+## Child to Parent Communication
+
+- Pass an event handler down.
+- Call handler when something happens.
+
+```js
+// Child
+function SearchBar({ onSubmit }) {
+  const handleClick = () => {
+    onSubmit("cars");
+  };
+
+  return (
+    <div>
+      <input />
+      <button onClick={handleClick}>Submit</button>
+    </div>
+  );
+}
+```
+
+```js
+// Parent
+function App() {
+  const handleSubmit = (term) => {
+    console.log("Do a search with:", term);
+  };
+
+  return (
+    <div>
+      <SearchBar onSubmit={handleSubmit} />
+    </div>
+  );
+}
+```
