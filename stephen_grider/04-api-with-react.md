@@ -16,14 +16,10 @@
 // GET Request
 axios.get(url, {
   // Headers that we want to add into the request
-  headers: {
-
-  },
+  headers: {},
   // Key-value pairs that will be turned into a query string and added to the URL
-  params: {
-
-  },
-})
+  params: {},
+});
 ```
 
 ## Understanding `async` and `await`
@@ -79,3 +75,37 @@ function App() {
 - `<form></form>`: default HTML submit.
 - Able to detect the `ENTER` key and button click.
 - `e.preventDefault()`: prevent default behavior of form submission.
+
+## Extracting value from `input` elements
+
+- Never try to get a value out of an input using a `querySelector`
+  - Don't do this: `document.querySelector('input').value`
+  - Will be rejected from job interviews if you write code like this.
+  - Reason: There might be multiple `input` elements on the page. Thus, using `querySelector` will only retrieve the first input element on the page and may not necessarily be the one you intended to target.
+- React way to handle text inputs:
+  1. Create a new piece of state
+  2. Create an event handler to watch for an `onChange` event.
+  3. When the `onChange` event fires, get the value of the input.
+  4. Take that value from the input and use it to update your state.
+  ```js
+  // Updating state so it causes component to rerender with every key press. (Steph said it is not a big deal)
+  // Easier to add in more advanced features
+  const handleChange = (event) => {
+    setTerm(event.target.value);
+  };
+  ```
+  5. Pass your state to the input as the value prop.
+- Browser Behavior with input state change
+  1. User types in input
+  2. Browser updates the text in the input
+  3. Browser triggers an event to say the input was updated
+  4. We read the value from the input, **update state**.
+  5. State update! Component rerenders.
+  6. We provide value 'prop' to input - React changes the input's value.
+
+## Set State with Regex
+
+```js
+// Don't allow lowercase characters
+setTerm(event.target.value.replace(/[a-z]/, ""));
+```
