@@ -44,3 +44,54 @@ function MyComponent() {
   return <div>{num}</div>
 }
 ```
+
+## Context Provider
+
+- If the application requires more than a simple state sharing across components, can create a custom context Provider component to provide additional functionality and state management.
+  - Advanced features include reducers, actions, or middleware.
+
+```js
+// Creating Context
+const BooksContext = createContext();
+
+// Context Provider
+function Provider({ children }) {
+  const [count, setCount] = useState(5);
+
+  const valueToShare = {
+    count,
+    incrementCount: () => {
+      setCount(count + 1);
+    },
+  };
+
+  return (
+    <BooksContext.Provider value={valueToShare}>
+      {children}
+    </BooksContext.Provider>
+  );
+}
+
+export { Provider };
+
+// Providing Context (Any of its children will receive the 'value')
+import { Provider } from "./context/books";
+
+root.render(
+  <Provider>
+    <App />
+  </Provider>
+);
+
+// Children receiving the Context Provider
+function BookList({ books, onDelete, onEdit }) {
+  const { count, incrementCount } = useContext(BooksContext);
+
+  return (
+    <div className="book-list">
+      {count}
+      <button onClick={incrementCount}>Click</button>
+    </div>
+  );
+}
+```
