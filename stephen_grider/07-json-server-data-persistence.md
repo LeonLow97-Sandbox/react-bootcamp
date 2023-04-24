@@ -20,5 +20,14 @@
 4. Run the command.
   - `npm run server`
 
+## Standalone API Client
 
+- Program used to make requests to an API server, specifically for development/test.
+- Built into VSCode.
+  `REST Client`
+- Create file `api.http` to send requests.
+```
+GET http://localhost:3001/books HTTP/1.1
+Content-Type: application/json
+```
 
