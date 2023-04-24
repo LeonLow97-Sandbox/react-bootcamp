@@ -149,3 +149,6 @@ const removeColor = () => {
   setFruit(rest);
 };
 ```
+
+## Closing the Edit Form between 2 components
+
