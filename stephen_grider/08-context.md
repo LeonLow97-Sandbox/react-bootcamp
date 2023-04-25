@@ -95,3 +95,8 @@ function BookList({ books, onDelete, onEdit }) {
   );
 }
 ```
+
+## Application State vs Component State
+
+- **Application State**: Data that is used by many different components.
+- **Component State**: Data that is used by very few components.
