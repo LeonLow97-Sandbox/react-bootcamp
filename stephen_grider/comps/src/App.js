@@ -2,10 +2,14 @@ import Button from "./Button";
 import { GoBookmark, GoDatabase, GoAlert } from "react-icons/go";
 
 function App() {
+  const handleClick = () => {
+    console.log("Clicked!");
+  };
+
   return (
     <div>
       <div>
-        <Button primary rounded>
+        <Button primary rounded onClick={handleClick}>
           <GoAlert />
           Primary
         </Button>
