@@ -1,43 +1,28 @@
-import Button from "./Button";
-import { GoBookmark, GoDatabase, GoAlert } from "react-icons/go";
+import Accordion from "./components/Accordion";
 
 function App() {
-  const handleClick = () => {
-    console.log("Clicked!");
-  };
+  const items = [
+    {
+      id: "l23k42",
+      label: "Can I use React on a project?",
+      content:
+        "You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! ",
+    },
+    {
+      id: "io3jt4",
+      label: "Can I use JavaScript on a project?",
+      content:
+        "You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! ",
+    },
+    {
+      id: "oi34j5",
+      label: "Can I use CSS on a project?",
+      content:
+        "You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! You can use React on any project you want! ",
+    },
+  ];
 
-  return (
-    <div>
-      <div>
-        <Button primary rounded className="mb-5" onClick={handleClick}>
-          <GoAlert />
-          Primary
-        </Button>
-      </div>
-      <div>
-        <Button secondary outline rounded>
-          <GoBookmark />
-          Secondary
-        </Button>
-      </div>
-      <div>
-        <Button success>
-          <GoDatabase />
-          Success
-        </Button>
-      </div>
-      <div>
-        <Button warning outline>
-          Warning
-        </Button>
-      </div>
-      <div>
-        <Button danger rounded>
-          Danger
-        </Button>
-      </div>
-    </div>
-  );
+  return <Accordion items={items} />;
 }
 
 export default App;
