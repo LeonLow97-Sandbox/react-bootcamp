@@ -76,3 +76,9 @@ const finalClassName = className({
 
 console.log(finalClassName); // bg-blue-500
 ```
+
+#### `react-icons`
+
+- [Link](react-icons.github.io/react-icons)
+  - `npm install react-icons --save`
+- Gives access to a ton of different icon libraries.
