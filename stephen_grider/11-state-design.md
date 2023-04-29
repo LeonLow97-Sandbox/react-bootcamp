@@ -27,13 +27,31 @@
 6. Repeat #4 and #5 with a different variation.
 7. Imagine you have to write a function that returns the text of steps #5 and #6. In addition to your component props, what other arguments would you need?
 8. Decide where each event handler + state will be defined.
-    - Event handler should usually be defined in same component as the state it modifies.
-    - It might be used in a different component.
+   - Event handler should usually be defined in same component as the state it modifies.
+   - It might be used in a different component.
 
 ## Understanding JS Boolean Expressions (Conditional Rendering)
 
 - `||`: gives back the first value that is truthy.
-    - E.g., 100 || 200 returns 100
+  - E.g., 100 || 200 returns 100
 - `&&`: gives back the first falsey value or the last truthy value.
-    - E.g., 'hi' && 'there' returns there
-    - E.g., false && 'there' returns false
+  - E.g., 'hi' && 'there' returns there
+  - E.g., false && 'there' returns false
+
+## Receiving events vs other arguments
+
+```js
+// Receiving event
+const handleClick = (event) => {
+  console.log(event);
+};
+
+return <div onClick={handleClick}>Click</div>;
+
+// Receiving the handleClick argument
+const handleClick = (index) => {
+  console.log(index); // 1
+};
+
+return <div onClick={() => handleClick(1)}>Click</div>;
+```
