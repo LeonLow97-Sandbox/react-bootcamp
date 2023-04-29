@@ -56,7 +56,7 @@ Card.propTypes = {
 - JS Library for building up a `className` string based on different values.
 - Library is called `classnames`, but prop is `className`.
 - [Link](npmjs.com/package/classnames)
-    - `npm install classnames`
+  - `npm install classnames`
 
 ```js
 const primary = true;
@@ -65,7 +65,14 @@ const warning = false;
 // For each key-value pair, it check if the value is truthy.
 // If so, add the key to the string you are building.
 className({
-    'bg-blue-500': primary,
-    'bg-yellow-500': warning
-})
+  "bg-blue-500": primary,
+  "bg-yellow-500": warning,
+});
+
+const finalClassName = className({
+  "bg-blue-500": true,
+  "bg-red-500": false,
+});
+
+console.log(finalClassName); // bg-blue-500
 ```

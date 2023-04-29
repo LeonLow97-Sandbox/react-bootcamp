@@ -4,19 +4,19 @@ function App() {
   return (
     <div>
       <div>
-        <Button primary>Create User</Button>
+        <Button primary>Primary</Button>
       </div>
       <div>
-        <Button>Login</Button>
+        <Button secondary>Secondary</Button>
       </div>
       <div>
-        <Button>Logout</Button>
+        <Button success>Success</Button>
       </div>
       <div>
-        <Button>Submit</Button>
+        <Button warning>Warning</Button>
       </div>
       <div>
-        <Button>Search</Button>
+        <Button danger>Danger</Button>
       </div>
     </div>
   );
