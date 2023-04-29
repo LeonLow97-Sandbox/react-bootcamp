@@ -6,11 +6,23 @@ function Accordion({ items }) {
 
   // Defining the event handler outside the mapping function
   const handleClick = (index) => {
-    if (expandedIndex === index) {
-      setExpandedIndex(-1);
-    } else {
-      setExpandedIndex(index);
-    }
+    // most up to date version of expandedIndex
+    // `currentExpandedIndex` first argument to setter function is guaranteed 
+    // to be the most up to date version of counter
+    setExpandedIndex((currentExpandedIndex) => {
+        console.log(currentExpandedIndex)
+      if (currentExpandedIndex === index) {
+        return -1;
+      } else {
+        return index;
+      }
+    });
+
+    // if (expandedIndex === index) {
+    //   setExpandedIndex(-1);
+    // } else {
+    //   setExpandedIndex(index);
+    // }
   };
 
   const renderedItems = items.map((item, index) => {

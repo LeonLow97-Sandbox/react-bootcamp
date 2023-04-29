@@ -55,3 +55,12 @@ const handleClick = (index) => {
 
 return <div onClick={() => handleClick(1)}>Click</div>;
 ```
+
+## Functional State Updates
+
+- Simple Version
+    - Use if new value does not depend on old.
+    - E.g., `setCounter(10)`
+- Functional Version
+    - Use if new value depends on old.
+    
