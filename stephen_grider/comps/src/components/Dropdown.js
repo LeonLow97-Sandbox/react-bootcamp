@@ -23,11 +23,11 @@ function Dropdown({ options, selection, onSelect }) {
     );
   });
 
-  let content = selection ? selection.label : "Select...";
+  //   let content = selection ? selection.label : "Select...";
 
   return (
     <div>
-      <div onClick={handleClick}>{content}</div>
+      <div onClick={handleClick}>{selection?.label || "Select..."}</div>
       {isOpen && <div>{renderedOptions}</div>}
     </div>
   );
