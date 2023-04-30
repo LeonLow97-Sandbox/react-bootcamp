@@ -26,7 +26,7 @@
 5. Replace remaining elements with text descriptions.
 6. Repeat #4 and #5 with a different variation.
 7. Imagine you have to write a function that returns the text of steps #5 and #6. In addition to your component props, what other arguments would you need?
-8. Decide where each event handler + state will be defined.
+8. Decide where each event handler + state will be defined. (parent or child component?)
    - Event handler should usually be defined in same component as the state it modifies.
    - It might be used in a different component.
 
@@ -59,8 +59,19 @@ return <div onClick={() => handleClick(1)}>Click</div>;
 ## Functional State Updates
 
 - Simple Version
-    - Use if new value does not depend on old.
-    - E.g., `setCounter(10)`
+  - Use if new value does not depend on old.
+  - E.g., `setCounter(10)`
 - Functional Version
-    - Use if new value depends on old.
-    
+  - Use if new value depends on old.
+
+## State Design for **Dropdown**
+
+- State
+  - An item can be selected
+    - Name ('selected'), Type: option | null
+  - Menu opens and closes ('isOpen')
+    - Name ('isOpen'), Type: boolean
+- Event Handler
+  - Click an option
+  - Click the dropdown
+
