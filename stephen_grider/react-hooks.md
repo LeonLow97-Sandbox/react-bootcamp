@@ -52,3 +52,13 @@ function MyComponent() {
 const cachedFn = useCallback(fn, dependencies)
 const cachedFn = useCallback(fn, [])
 ```
+
+## `useRef`
+
+- React Hook that lets you reference a value that's not needed for rendering.
+- Allows a component to get a *reference* to a *DOM element that it creates*.
+- 95% of the time used with DOM elements, but can hold a reference to any value.
+- `useRef` implementation:
+  - Create a ref at the top of your component by calling `useRef`
+  - Assign the ref to a JSX element as a prop called 'ref'.
+  - Access that DOM element with 'ref.current'
