@@ -8,7 +8,14 @@ function Dropdown({ options, value, onChange }) {
 
   useEffect(() => {
     const handler = (event) => {
-      console.log(divEl.current);
+      // if divEl not assigned to any reference of that element, we just return.
+      if (!divEl.current) {
+        return;
+      }
+
+      if (!divEl.current.contains(event.target)) {
+        setIsOpen(false);
+      }
     };
 
     document.addEventListener("click", handler, true);
