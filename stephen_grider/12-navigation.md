@@ -45,3 +45,10 @@ function Link({to}) {
     - So, navigate the user around by using `pushState`.
 - To detect the user going back and forward, watch for the `popstate` event:
     - E.g., `window.addEventListener('popstate', () => console.log('I am at', window.location.pathname))`
+
+## `Route` component
+
+- If currentPath == path prop, show children.
+- 2 props:
+    - path: '/dropdown'
+    - children: DropdownPage
