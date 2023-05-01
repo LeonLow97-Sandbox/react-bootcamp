@@ -33,7 +33,7 @@ function Link({to}) {
         console.log('User navigating to: ', to);
     };
 
-    return <a onClick={handleCLick} href={to}>Click</a>
+    return <a onClick={handleClick} href={to}>Click</a>
 }
 ```
 

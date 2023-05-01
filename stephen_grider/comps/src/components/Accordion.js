@@ -10,7 +10,6 @@ function Accordion({ items }) {
     // `currentExpandedIndex` first argument to setter function is guaranteed 
     // to be the most up to date version of counter
     setExpandedIndex((currentExpandedIndex) => {
-        console.log(currentExpandedIndex)
       if (currentExpandedIndex === index) {
         return -1;
       } else {
