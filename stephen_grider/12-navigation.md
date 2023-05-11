@@ -53,6 +53,11 @@ function Link({to}) {
     - path: '/dropdown'
     - children: DropdownPage
 
+## Understanding pushstate and popstate
+
+- The `Link` component pushes the url onto the stack whenever the user clicks on the link.
+- When the user clicks the back button, 
+
 ## Popular Navigation Libraries
 
 - React-Router

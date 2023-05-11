@@ -1,10 +1,11 @@
-import Link from "./Link";
+import Link from './Link';
 
 function Sidebar() {
   const links = [
-    { label: "Dropdown", path: "/" },
-    { label: "Accordion", path: "/accordion" },
-    { label: "Buttons", path: "/buttons" },
+    { label: 'Dropdown', path: '/' },
+    { label: 'Accordion', path: '/accordion' },
+    { label: 'Buttons', path: '/buttons' },
+    { label: 'Modal', path: '/modal' },
   ];
 
   const renderedLinks = links.map((link) => {

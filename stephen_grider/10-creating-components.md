@@ -86,3 +86,11 @@ console.log(finalClassName); // bg-blue-500
 ## Accordion
 
 - Passing prop of *label* and *content*.
+
+## Modal
+
+- Parent owns state to keep track of whether modal should be displayed.
+- Parent component can show a modal at any time for any reason.
+- Using `tailwind.css`
+  - `absolute`: `position: absolute`
+  - `inset-0`: `top: 0; left: 0; right: 0; bottom: 0;`
