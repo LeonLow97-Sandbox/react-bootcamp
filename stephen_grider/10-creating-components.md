@@ -131,4 +131,48 @@ console.log(finalClassName); // bg-blue-500
 ## Sorting in Table Component
 
 - Sorting in JavaScript
-  - 
+
+```js
+const data = [5,1,4,3]
+
+// JavaScript sort converts elements in the array to strings, then sorts those.
+// Sort in ascending order (need a comparator function)
+data.sort((a, b) => {
+    return a - b
+})
+
+const dataStr = ['t', 'A', 'a', 'B', 'b']
+
+// Comparing strings in JavaScript
+dataStr.sort((a, b) => {
+    return a.localeCompare(b)
+})
+
+// Sorting Objects
+const dataObj = [
+    {name: 'Tomato', cost: 10, weight: 5},
+    {name: 'Carrot', cost: 15, weight: 2},
+    {name: 'Onion', cost: 5, weight: 7},
+]
+
+function getSortValue(vegetable) {
+    return vegetable.cost
+}
+
+// Sort Ascending or Descending order
+const sortOrder = 'desc' // can change between 'asc' and 'desc'
+dataObj.sort((a, b) => {
+    const valueA = getSortValue(a)
+    const valueB = getSortValue(b)
+
+    // To change the order, multiple by -1
+    const reverseOrder = sortOrder === 'asc' ? 1 : -1
+
+    // checks if number of string
+    if (typeof valueA === 'string') {
+        return valueA.localeCompare(valueB) * reverseOrder
+    } else {
+        return (valueA - valueB) * reverseOrder
+    }
+})
+```
