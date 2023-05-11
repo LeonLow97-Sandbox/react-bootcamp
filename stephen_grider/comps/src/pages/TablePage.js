@@ -8,15 +8,25 @@ function TablePage() {
     { name: 'Lime', color: 'bg-green-500', score: 4 },
   ];
 
+  // label: Header name for the columns
+  // render: display for cells
   const config = [
     { label: 'Name', render: (fruit) => fruit.name },
-    { label: 'Color', render: (fruit) => fruit.color },
+    {
+      label: 'Color',
+      render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`} />,
+    },
     { label: 'Score', render: (fruit) => fruit.score },
   ];
 
+  // Function used to generate key for mapping function in Table component
+  const keyFn = (fruit) => {
+    return fruit.name
+  }
+
   return (
     <div>
-      <Table data={data} config={config} />
+      <Table data={data} config={config} keyFn={keyFn} />
     </div>
   );
 }
