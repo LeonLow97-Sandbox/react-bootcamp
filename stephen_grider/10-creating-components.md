@@ -127,3 +127,8 @@ console.log(finalClassName); // bg-blue-500
   - Cells can be calculated using multiple properties.
   - Cells can display arbitrary data.
     - text, numbers, images, etc..
+
+## Sorting in Table Component
+
+- Sorting in JavaScript
+  - 
