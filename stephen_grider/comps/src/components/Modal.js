@@ -1,6 +1,18 @@
 import ReactDOM from 'react-dom';
+import { useEffect } from 'react';
 
 function Modal({ onClose, children, actionBar }) {
+  // Add 'overflow: hidden' to the body element for the first time when Modal is displayed.
+  // This prevent scrolling when the modal is open.
+  useEffect(() => {
+    document.body.classList.add('overflow-hidden');
+
+    // remove this class when modal component is removed from the DOM
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, []);
+
   return ReactDOM.createPortal(
     <div>
       <div
