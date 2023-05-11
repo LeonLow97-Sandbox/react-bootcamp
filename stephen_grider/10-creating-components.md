@@ -65,13 +65,13 @@ const warning = false;
 // For each key-value pair, it check if the value is truthy.
 // If so, add the key to the string you are building.
 className({
-  "bg-blue-500": primary,
-  "bg-yellow-500": warning,
+  'bg-blue-500': primary,
+  'bg-yellow-500': warning,
 });
 
 const finalClassName = className({
-  "bg-blue-500": true,
-  "bg-red-500": false,
+  'bg-blue-500': true,
+  'bg-red-500': false,
 });
 
 console.log(finalClassName); // bg-blue-500
@@ -85,7 +85,7 @@ console.log(finalClassName); // bg-blue-500
 
 ## Accordion
 
-- Passing prop of *label* and *content*.
+- Passing prop of _label_ and _content_.
 
 ## Modal
 
@@ -94,3 +94,36 @@ console.log(finalClassName); // bg-blue-500
 - Using `tailwind.css`
   - `absolute`: `position: absolute`
   - `inset-0`: `top: 0; left: 0; right: 0; bottom: 0;`
+
+## Table
+
+- Table HTML Semantics
+
+```html
+<table>
+  <thead>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+```
+
+- Table Component Requirements:
+  - Variable number of rows
+  - Variable number of columns
+  - No. of columns doesn't have to match no. of properties in object.
+  - Some columns are sortable
+  - Sortable columns can sort different kinds of values
+  - Cells can be calculated using multiple properties.
+  - Cells can display arbitrary data.
+    - text, numbers, images, etc..
