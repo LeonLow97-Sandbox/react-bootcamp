@@ -19,6 +19,45 @@ const [state, dispatch] = useReducer(reducer, { count: 0, valueToAdd: 0 });
 
 - `state`: state variable
 - `dispatch`: function to change state
+  - When calling `dispatch`, React looks for the defined reducer function and runs it.
 - `{ count: 0, valueToAdd: 0 }`: initial value for this state
-    - All state for the **whole component** defined in a single object.
-    - Unlike `useState`, where each piece of state is defined as a separate variable.
+  - All state for the **whole component** defined in a single object.
+  - Unlike `useState`, where each piece of state is defined as a separate variable.
+
+## Reducer function
+
+```js
+const reducer = (state, action) => {};
+```
+
+- `state`: current state
+- `action`: argument passed to dispatch function.
+- Reducer function returns the new state and updates the state after component rerender in `useReducer` function.
+- If you return nothing, then your new state will be `undefined`.
+- No async/await, no requests, no promises, no outside variables.
+- Don't directly modify the state
+  - E.g., `state.count = state.count + 1`
+
+## What to pass into the `dispatch` function?
+
+- When we need to modify state, we will call dispatch and always pass in an 'action' **object**.
+- The 'action' object will always have a **type** property that is a string. This helps tell the reducer what state update it needs to make.
+- If we need to communicate some data to the reducer, it will be placed on the **payload** property of the action object.
+- This is a very common community convention, not a requirement. React doesn't treat these action objects any differently.
+
+```js
+// dispatch function
+const handleChange = (event) => {
+  const value = parseInt(event.target.value) || 0;
+
+  dispatch({
+    type: 'change-value',
+    payload: value, // optional property
+  });
+};
+
+// reducer
+if (action.type === 'increment-count') {return ...}
+if (action.type === 'change-value') {return ...}
+return state
+```
