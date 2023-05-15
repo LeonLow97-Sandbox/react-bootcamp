@@ -61,3 +61,53 @@ if (action.type === 'increment-count') {return ...}
 if (action.type === 'change-value') {return ...}
 return state
 ```
+
+## Considerations around Reducers
+
+- _Usually_ makes more sense to stuff logic into the reducer and keep the dispatches simple.
+- Less duplicated code if you need to dispatch the same action in multiple places.
+- Part of the goal of reducers is to have a very _specific_ set of ways that state can be changed.
+
+# Reducer with Immer
+
+- `npm install immer`
+- `import { produce } from 'immer';`
+- Wrap reducer function with produce
+  ```js
+  useReducer(produce(reducer), {
+    count: initialCount,
+    valueToAdd: 0,
+  });
+  ```
+- Library that lets you write code to **directly mutate state**.
+
+```js
+// Currently in reducer functions
+const reducer = (state, action) => {
+  switch (action.type) {
+    case INCREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count + 1
+      };
+    default:
+      return state;
+  }
+}
+
+// Reducer with Immer
+const reducer = (state, action) => {
+  switch (action.type) {
+    case INCREMENT_COUNT:
+      state.count = state.count + 1;
+      return;
+    default:
+      return;
+  }
+}
+```
+
+|Normal Reducer|Reducer with Immer|
+|:-:|:-:|
+|No directly changing state|Can mutate state|
+|Must return a new value to use for state|Do not have to return a new value. Still return in each case, otherwise you get 'fallthrough'|
