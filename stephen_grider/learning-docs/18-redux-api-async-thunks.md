@@ -13,3 +13,5 @@
 - `npm install @faker-js/faker @reduxjs/toolkit axios classnames json-server react-icons`
 - Install tailwind.css with CRA
     - [Installation Docs](https://tailwindcss.com/docs/guides/create-react-app)
+- `npm run start`
+- `npm run start:server`
