@@ -69,3 +69,12 @@
     - `type: fulfilled`: fetched data successfully.
     - `type: rejected`: error occurred during the request.
 - Steps for Adding a Thunk
+
+## Creating an Async Thunk
+
+1. Create a new file for your think. Name if after the purpose of the request.
+2. Create the thunk. Give it a base type that describes the purpose of the request.
+3. In the thunk, make the request, return the data that you want to use in the reducer.
+4. In the slice, add extraReducers, watching for the action types made by the thunk.
+5. Export the thunk from the store/index.js file.
+6. When a user does something, dispatch the thunk function to run it.
