@@ -16,3 +16,56 @@
     - [Installation Docs](https://tailwindcss.com/docs/guides/create-react-app)
 - `npm run start`
 - `npm run start:server`
+
+## Data Structuring
+
+- Denormalized Form
+    - If you are expecting that UI won't change or project requirements won't change, use this.
+
+```
+[
+    {
+        id: 50,
+        name: 'Myra',
+        albums: [
+            { id: 1, title: 'Album #1' },
+            { id: 2, title: 'Album #2' },
+        ]
+    }
+]
+```
+
+- Normalized Form
+    - More flexible, easier to change.
+    - More code to write (downside)
+
+```
+[
+    { id: 1, title: 'Album #1', userId: 50 },
+    { id: 2, title: 'Album #2', userId: 50 },
+    { id: 3, title: 'Album #3', userId: 63 },
+    { id: 4, title: 'Album #4', userId: 63 },
+]
+
+[
+    { id: 50, name: 'Myra' },
+    { id: 63, name: 'Ervin' }
+]
+```
+
+## Data Fetching in Redux Toolkit
+
+- Async Thunk Functions
+    - To handle users
+- Redux Toolkit Query (newer way)
+    - To handle albums and photos
+- Typically, choose 1 data fetching method.
+- Never make requests in reducers! Reducers should always be 100% synchronous.
+
+## Async Thunk Function
+
+- Actions (3 States)
+    - `type: pending`: in the process of fetching data.
+    - `type: fulfilled`: fetched data successfully.
+    - `type: rejected`: error occurred during the request.
+- Steps for Adding a Thunk
