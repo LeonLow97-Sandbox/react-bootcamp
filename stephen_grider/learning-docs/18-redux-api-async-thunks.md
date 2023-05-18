@@ -11,6 +11,7 @@
 
 - Project name: `media`
 - `npm install @faker-js/faker @reduxjs/toolkit axios classnames json-server react-icons`
+- `npm install react-redux`
 - Install tailwind.css with CRA
     - [Installation Docs](https://tailwindcss.com/docs/guides/create-react-app)
 - `npm run start`
