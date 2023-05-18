@@ -68,7 +68,7 @@
     - `type: pending`: in the process of fetching data.
     - `type: fulfilled`: fetched data successfully.
     - `type: rejected`: error occurred during the request.
-- Steps for Adding a Thunk
+- Action payload: the action payload is the response.data returned from the axios response.
 
 ## Creating an Async Thunk
 

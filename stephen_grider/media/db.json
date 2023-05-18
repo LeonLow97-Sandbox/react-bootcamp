@@ -1,10 +1,46 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Leon"
-        }
-    ],
-    "albums": [],
-    "photos": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Leon"
+    },
+    {
+      "name": "Randal Altenwerth",
+      "id": 2
+    },
+    {
+      "name": "Alexis Crist-Balistreri",
+      "id": 3
+    },
+    {
+      "name": "Sophia Lebsack",
+      "id": 4
+    },
+    {
+      "name": "Monica Kshlerin",
+      "id": 5
+    },
+    {
+      "name": "Jose MacGyver",
+      "id": 6
+    },
+    {
+      "name": "Kristine Fahey IV",
+      "id": 7
+    },
+    {
+      "name": "Delores Koch",
+      "id": 8
+    },
+    {
+      "name": "Claude Bins",
+      "id": 9
+    },
+    {
+      "name": "Mr. Raul Kautzer",
+      "id": 10
+    }
+  ],
+  "albums": [],
+  "photos": []
 }
