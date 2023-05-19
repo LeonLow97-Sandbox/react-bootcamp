@@ -53,6 +53,12 @@
 ]
 ```
 
+## What are Thunks?
+
+- In Redux, a *thunk* is a function used to perform *asynchronous* logic and dispatch actions.
+- It provides a way to delay the dispatch of an action, or to dispatch only under certain conditions.
+- Thunks are typically used to handle side effects, such as making API calls or performing asynchronous operations, in Redux applications.
+
 ## Data Fetching in Redux Toolkit
 
 - Async Thunk Functions
