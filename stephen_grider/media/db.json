@@ -1,120 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Leon"
+      "name": "Arlene Padberg",
+      "id": 1
     },
     {
-      "name": "Randal Altenwerth",
+      "name": "Bethany Bauch",
       "id": 2
     },
     {
-      "name": "Alexis Crist-Balistreri",
+      "name": "Mrs. Beatrice Dickinson",
       "id": 3
     },
     {
-      "name": "Sophia Lebsack",
+      "name": "Terrance Maggio",
       "id": 4
-    },
-    {
-      "name": "Monica Kshlerin",
-      "id": 5
-    },
-    {
-      "name": "Jose MacGyver",
-      "id": 6
-    },
-    {
-      "name": "Kristine Fahey IV",
-      "id": 7
-    },
-    {
-      "name": "Delores Koch",
-      "id": 8
-    },
-    {
-      "name": "Claude Bins",
-      "id": 9
-    },
-    {
-      "name": "Mr. Raul Kautzer",
-      "id": 10
-    },
-    {
-      "name": "Blake Hauck",
-      "id": 11
-    },
-    {
-      "name": "Louise Labadie DDS",
-      "id": 12
-    },
-    {
-      "name": "Stacy Collins MD",
-      "id": 13
-    },
-    {
-      "name": "Sonja Torp-Wolf Jr.",
-      "id": 14
-    },
-    {
-      "name": "Stuart Kerluke IV",
-      "id": 15
-    },
-    {
-      "name": "Sandra Heaney",
-      "id": 16
-    },
-    {
-      "name": "Johanna McKenzie",
-      "id": 17
-    },
-    {
-      "name": "Jessica Howe-Ritchie",
-      "id": 18
-    },
-    {
-      "name": "Elizabeth Hintz",
-      "id": 19
-    },
-    {
-      "name": "Kathleen Collins II",
-      "id": 20
-    },
-    {
-      "name": "Rebecca Rau",
-      "id": 21
-    },
-    {
-      "name": "Damon Crist",
-      "id": 22
-    },
-    {
-      "name": "Oliver Hermiston",
-      "id": 23
-    },
-    {
-      "name": "Mrs. Shari Zboncak",
-      "id": 24
-    },
-    {
-      "name": "Barry Cronin",
-      "id": 25
-    },
-    {
-      "name": "Laurence Mraz",
-      "id": 26
-    },
-    {
-      "name": "Shane O'Hara",
-      "id": 27
-    },
-    {
-      "name": "Lorena Olson",
-      "id": 28
-    },
-    {
-      "name": "Bethany Gleichner",
-      "id": 29
     }
   ],
   "albums": [],
