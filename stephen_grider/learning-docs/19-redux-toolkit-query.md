@@ -42,9 +42,32 @@ useRemoveAlbumMutation
 
 # Hook in RTK Query
 
+- **Queries** run immediately when the component is displayed on the screen (by default).
 - `const result = useFetchAlbumsQuery(user)`
     - `data`: Data returned from the server.
     - `error`: Error, if one occurred.
     - `isLoading`: True if currently loading data for the **first time only**
     - `isFetching`: True if currently loading data
     - `refetch`: Function tell the query to return
+
+# Hook in RTK Mutation
+
+- **Mutations** give you a function to run when you want to *change some data*.
+- `const [addAlbum, results] = useAddAlbumMutation()`
+    - `addAlbum`: function called to execute mutation.
+    - `results`: object returned from the mutation.
+
+## Options for Handling Updates Data
+
+1. Take the newly-created album from the response and add it into our list of albums.
+    - Only 1 request!
+    - All code becomes more complicated.
+    - Response might not contain the needed data.
+2. After creating a new album, make a second request to get all albums. (recommended)
+    - Easier to picture data flow in the app
+    - 2 requests!
+    - Automatic data refetching is implemented using the "tag" system.
+        - Tag system is used to mark certain queries as being out of state after specific mutations are executed.
+    - Tags are easier if you first understand how RTKQ tracks requests.
+    - RTK can de-duplicate requests.
+        - Redux checks if there is a pending request with the same endpoint in the store.
