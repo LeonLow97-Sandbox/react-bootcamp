@@ -21,8 +21,28 @@
     },
     {
       "userId": 1,
-      "title": "Incredible Rubber Shoes",
+      "title": "Licensed Soft Pants",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "title": "Recycled Metal Table",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "title": "Electronic Concrete Table",
       "id": 16
+    },
+    {
+      "userId": 1,
+      "title": "Refined Rubber Computer",
+      "id": 17
+    },
+    {
+      "userId": 1,
+      "title": "Ergonomic Bronze Computer",
+      "id": 18
     }
   ],
   "photos": []

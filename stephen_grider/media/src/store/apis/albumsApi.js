@@ -23,8 +23,7 @@ const albumsApi = createApi({
     return {
       removeAlbum: builder.mutation({
         invalidatesTags: (result, error, album) => {
-          console.log(album);
-          return [{ type: 'Album', id: album.userId }];
+          return [{ type: 'Album', id: album.id }];
         },
         query: (album) => {
           return {
@@ -35,7 +34,7 @@ const albumsApi = createApi({
       }),
       addAlbum: builder.mutation({
         invalidatesTags: (result, error, user) => {
-          return [{ type: 'Album', id: user.id }];
+          return [{ type: 'UsersAlbum', id: user.id }];
         }, // removes outdated tags
         query: (user) => {
           return {
@@ -51,7 +50,11 @@ const albumsApi = createApi({
       // useFetchAlbumsQuery Hook
       fetchAlbums: builder.query({
         providesTags: (result, error, user) => {
-          return [{ type: 'Album', id: user.id }];
+          const tags = result.map((album) => {
+            return { type: 'Album', id: album.id };
+          });
+          tags.push({ type: 'UsersAlbum', id: user.id });
+          return tags;
         }, // for redux store and server to recognize the tag to update state
         query: (user) => {
           return {
