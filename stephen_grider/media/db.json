@@ -15,34 +15,9 @@
   ],
   "albums": [
     {
-      "id": 10,
-      "title": "Hiking Trip",
-      "userId": 1
-    },
-    {
-      "userId": 1,
-      "title": "Awesome Cotton Soap",
-      "id": 11
-    },
-    {
-      "userId": 1,
-      "title": "Elegant Concrete Table",
-      "id": 12
-    },
-    {
       "userId": 2,
       "title": "Small Wooden Tuna",
       "id": 13
-    },
-    {
-      "userId": 1,
-      "title": "Generic Frozen Sausages",
-      "id": 14
-    },
-    {
-      "userId": 1,
-      "title": "Electronic Wooden Fish",
-      "id": 15
     },
     {
       "userId": 1,
