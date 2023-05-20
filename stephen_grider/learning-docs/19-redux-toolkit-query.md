@@ -39,3 +39,12 @@ useRemoveAlbumMutation
     - `fetchBaseQuery`: Function to make a pre-configured version of 'fetch'. Add a `baseQuery`.
     - RTK uses `fetch`.
 5. Add `endpoints`, one for each kind of request you want to make. Reqs that read data are *queries*, write data are *mutations*.
+
+# Hook in RTK Query
+
+- `const result = useFetchAlbumsQuery(user)`
+    - `data`: Data returned from the server.
+    - `error`: Error, if one occurred.
+    - `isLoading`: True if currently loading data for the **first time only**
+    - `isFetching`: True if currently loading data
+    - `refetch`: Function tell the query to return
